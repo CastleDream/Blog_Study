@@ -1,0 +1,29 @@
+digraph Music{
+    bgcolor="seashell"
+    rankdir=TB;
+    //港澳台歌手
+    node[shape=circle,style=filled,fillcolor="cadetblue1",color="cadetblue3",penwidth=5]
+    /*fillcolor节点填充颜色（默认白色，但是当显示定义color后，会采取color的颜色） 
+      color节点形状边框颜色（默认黑色）*/
+    ChenYiXun[label="陈奕迅"]
+    YangQianYe[label="杨千烨"]
+    XieAnqi[label="谢安琪"]
+    {rank=same; ChenYiXun YangQianYe XieAnqi}
+    // 港澳台歌手对应的歌曲
+    node[shape=egg,style=filled,fillcolor="white",color="black",penwidth=1]
+    ChenYiXun->{"落花流水" "失忆蝴蝶" "裙下之臣"}
+    //大陆歌手
+    node[shape=circle,style=filled,fillcolor="lightpink2",color="lightpink"]
+    LiYuChun[label="李宇春"]
+    ZhouChuanXiong[label="周传雄"]
+
+    {rank=same; LiYuChun ZhouChuanXiong}
+    //欧美歌手
+    node[shape=circle,style=filled,fillcolor="plum",color="plum3"]
+    JustinBieber[label="Justin\nBieber"]
+    TaylerSwift[label="Tayler\nSwift"]
+
+    {rank=same; JustinBieber TaylerSwift}
+
+    
+}

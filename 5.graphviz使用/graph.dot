@@ -1,0 +1,66 @@
+digraph test {
+    ranksep=.75;
+    {
+        node [shape=plaintext, fontsize=16];
+        2017 -> 2018 -> 2019;
+    }
+    node [shape=box];
+    A  [label="开始"];
+    { rank=same; 2017 -> A -> B;}
+    { rank=same; 2018 C D}
+    { rank=same; 2019 E F} 
+    B -> C
+    A -> C
+    C -> D
+    subgraph cluster0 {
+        node [style=filled,color=white];
+        style=filled;
+        color=lightgrey;
+        a0 -> a1 -> a2 -> a3;
+        label = "process #1";
+    }
+    subgraph cluster1 {
+        node [style=filled];
+        b0 -> b1 -> b2 -> b3;
+        label = "process #2";
+        color=blue
+    }
+    node [shape=record];
+    M [label="<a>a|b|<c>c"]
+    M:a -> M:c
+    N:n -> N:ne
+    N:nw -> N:se [label="Y"]
+    L [shape=cylinder]
+    L -> K [color=red,arrowhead=diamond]
+    subgraph g {
+    //==========定义节点关系============
+    a->b;
+    b->c;
+    c->a;
+    c->d->e->f;
+    d->g;
+    e->h;
+    //==========定义节点属性============
+    //定义a节点为长方形, 样式为填充, 填充颜色为#ABACBA
+    a[shape=box,label="Server1\nWebServer",fillcolor="#ABACBA",style=filled];
+    //定义b为5边形, 标签为"bb", 样式为填充, 填充色为red
+    b[shape=polygon,sides=5,label="bb",style=filled,fillcolor=red];
+    //c, 默认为椭圆
+    d[shape=circle]; //园
+    e[shape=triangle]; //三角形
+    f[shape=polygon, sides=4, skew=0.5]; //平行四边形
+    g[shape=polygon, distortion=0.5]; //梯形, 上边长
+    h[shape=polygon, distortion=-.5]; //梯形, 下边长
+    }
+
+    subgraph first {
+    aA[label="开始" shape="diamond"];
+    bB[label="A" shape="box"];
+    cC[label="在一起" shape="diamond"];
+    dD[label="B" shape="box"];
+    aA -> bB[label="开心" labelfloat=true color="red"];
+    bB -> cC;
+    dD -> cC;
+    //{AB CD}->{E F}
+    }
+}
