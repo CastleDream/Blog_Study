@@ -71,5 +71,13 @@ P.S.1-6章节，是文字叙述背景介绍类，
 ## 5.graphviz使用
 graphviz学习的相关参考和练习
 
+## 6. 数字图像处理
+学习来源：
++ 测试图像和主要代码：<https://ustc-dip.github.io/#courseware>
++ 视频和部分代码：<https://www.icourse163.org/course/DUT-1002014037?tid=1467299448>
+
+文件结构说明：
+```bash
+```
 ## drawio_save
 存放使用drawio绘制的图形的源文件
