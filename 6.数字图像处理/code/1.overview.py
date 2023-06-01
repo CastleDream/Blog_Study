@@ -18,7 +18,7 @@ from matplotlib.colors import ListedColormap
 # 注意，如果是使用vscode基于脚本运行，这里的路径是相对于执行目录的，所以要把执行目录切换到`6.数字图像处理`这一级
 path = "./6.数字图像处理/img"
 
-# --------- 1. 压缩并保存不同质量图像 --------------#
+#------------ 1. 压缩并保存不同质量图像 --------------#
 srcImgPath = os.path.join(path, "zipQuality.jpg")
 srcImg = cv2.imread(srcImgPath)
 
@@ -30,7 +30,7 @@ plt.figure()
 plt.imshow(srcImg[:, :, [2, 1, 0]])
 plt.show(block=True)
 
-# ------- 2.查看3通道直方图 --------------------#
+#---------- 2.查看3通道直方图 --------------------#
 colors = ("b", "g", "r")  # opencv的默认三通道顺序
 
 plt.figure("histograms")
@@ -90,7 +90,7 @@ plt.imshow(hsv[:, :, 2], cmap='gray')
 plt.show(block=True)
 
 
-# ---------4.查看BGR三通道-----------------#
+#------------4.查看BGR三通道-----------------#
 # opencv显示
 # blue,green,red = cv2.split(srcImg)
 # Hori = np.concatenate((blue,green,red), axis=1)
