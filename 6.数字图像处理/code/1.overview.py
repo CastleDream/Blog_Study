@@ -18,7 +18,7 @@ from matplotlib.colors import ListedColormap
 # 注意，如果是使用vscode基于脚本运行，这里的路径是相对于执行目录的，所以要把执行目录切换到`6.数字图像处理`这一级
 path = "./6.数字图像处理/img"
 
-#------------ 1. 压缩并保存不同质量图像 --------------#
+# ------------ 1. 压缩并保存不同质量图像 --------------#
 srcImgPath = os.path.join(path, "zipQuality.jpg")
 srcImg = cv2.imread(srcImgPath)
 
@@ -30,7 +30,7 @@ plt.figure()
 plt.imshow(srcImg[:, :, [2, 1, 0]])
 plt.show(block=True)
 
-#---------- 2.查看3通道直方图 --------------------#
+# ---------- 2.查看3通道直方图 --------------------#
 colors = ("b", "g", "r")  # opencv的默认三通道顺序
 
 plt.figure("histograms")
@@ -90,7 +90,7 @@ plt.imshow(hsv[:, :, 2], cmap='gray')
 plt.show(block=True)
 
 
-#------------4.查看BGR三通道-----------------#
+# ------------4.查看BGR三通道-----------------#
 # opencv显示
 # blue,green,red = cv2.split(srcImg)
 # Hori = np.concatenate((blue,green,red), axis=1)
@@ -117,11 +117,11 @@ plt.show(block=True)
 bgrdash = srcImg.astype(np.float)/255.
 
 K = 1 - np.max(bgrdash, axis=2)
-C = (1-bgrdash[...,2] - K)/(1-K)
-M = (1-bgrdash[...,1] - K)/(1-K)
-Y = (1-bgrdash[...,0] - K)/(1-K)
+C = (1-bgrdash[..., 2] - K)/(1-K)
+M = (1-bgrdash[..., 1] - K)/(1-K)
+Y = (1-bgrdash[..., 0] - K)/(1-K)
 
-CMYK = (np.dstack((C,M,Y,K)) * 255).astype(np.uint8)
+CMYK = (np.dstack((C, M, Y, K)) * 255).astype(np.uint8)
 channels = ('c', 'm', 'y', 'k')
 
 # 不那么好的cmap显示
@@ -129,31 +129,31 @@ plt.figure("wrong CMYK")
 for i, channel, colormap in zip(range(4), channels, ('Greens', 'RdPu', 'YlOrBr', 'gray')):
     plt.subplot(2, 2, i+1)
     plt.title(channel+" channel")
-    plt.imshow(np.asarray(CMYK[:,:,i]), cmap=colormap)
+    plt.imshow(np.asarray(CMYK[:, :, i]), cmap=colormap)
     # 在k中，以前白色的脸已经变成了黑色（值为0），gray显示模式，值越小，越黑
 
 # 自定义符合CMYK模式的cmap
 plt.figure("right CMYK")
 cyan_cmap = ListedColormap(["black", "cyan"])
 magenta_cmap = ListedColormap(["black", "magenta"])
-yellow_cmap=ListedColormap(["black", "yellow"])
+yellow_cmap = ListedColormap(["black", "yellow"])
 
 
 plt.subplot(2, 2, 1)
 plt.title("cyan")
-plt.imshow(np.asarray(CMYK[:,:,0]), cmap=cyan_cmap)
+plt.imshow(np.asarray(CMYK[:, :, 0]), cmap=cyan_cmap)
 
 plt.subplot(2, 2, 2)
 plt.title("magenta")
-plt.imshow(np.asarray(CMYK[:,:,1]), cmap=magenta_cmap)
+plt.imshow(np.asarray(CMYK[:, :, 1]), cmap=magenta_cmap)
 
 plt.subplot(2, 2, 3)
 plt.title("yellow")
-plt.imshow(np.asarray(CMYK[:,:,2]), cmap=yellow_cmap)
+plt.imshow(np.asarray(CMYK[:, :, 2]), cmap=yellow_cmap)
 
 plt.subplot(2, 2, 4)
 plt.title("black")
-plt.imshow(np.asarray(CMYK[:,:,3]), cmap="gray")
+plt.imshow(np.asarray(CMYK[:, :, 3]), cmap="gray")
 
 plt.show(block=True)
 
