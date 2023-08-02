@@ -1,4 +1,4 @@
-# Assignment #1: Assignment #1: Image Classification, kNN, SVM, Softmax, Neural Network
+# Assignment #1: Image Classification, kNN, SVM, Softmax, Neural Network
 ## 1. 作业说明
 2017年的作业一说明原链接：
 + md文件：<https://github.com/cs231n/cs231n.github.io/blob/master/assignments/2017/assignment1.md>
