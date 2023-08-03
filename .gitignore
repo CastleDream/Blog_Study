@@ -3,3 +3,9 @@
 **/test.ipynb
 **/test.py
 .vscode/settings.json
+7.CV/cs231n_2017/assignment/assignment1
+7.CV/cs231n_2017/assignment/assignment2
+7.CV/cs231n_2017/assignment/assignment3
+7.CV/cs231n_2017/datasets
+*.cpython-37.pyc
+__pycache__
